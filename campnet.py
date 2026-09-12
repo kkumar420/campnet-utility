@@ -2,12 +2,14 @@ import requests
 import time
 import xml.etree.ElementTree as ET
 import sys
+from pathlib import Path
 
 URL_LOGIN = "https://campnet.bits-goa.ac.in:8090/login.xml"
 URL_LOGOUT = "https://campnet.bits-goa.ac.in:8090/logout.xml"
 
 
 def get_credentials():
+    credentials_file = Path(__file__).parent / "credentials.txt"
     with open("credentials.txt", "r") as file:
         username = file.readline().strip()
         password = file.readline().strip()
